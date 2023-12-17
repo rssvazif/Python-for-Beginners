@@ -1,0 +1,5 @@
+# Calculate the next multiple of ten
+num=int(input())
+answer=int(num/10)
+answer=(answer+1)*10
+print(answer)
