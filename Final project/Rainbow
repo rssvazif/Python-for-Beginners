@@ -1,0 +1,24 @@
+# It reads a csv file that contains the names of people and their hashed codes that range from 1000 to 9999
+# and finds the passwords and stores them in the file(this is called Rainbow hacking)
+import hashlib
+import csv
+import collections
+
+def hash_password_hack(input_file_name, output_file_name):
+    my_dict=collections.OrderedDict()
+    final_dict=collections.OrderedDict()
+    with open(input_file_name) as file1:
+        reader=csv.reader(file1)
+        for row in reader:
+            key,value=row
+            my_dict[key]=value
+    for i in range(1000,9999):
+        seq=str(i)
+        seq=hashlib.sha256(seq.encode()).hexdigest()
+        for key,value in my_dict.items():
+            if seq == value:
+                final_dict[key]=i
+    with open(output_file_name,'w',newline='') as file2:
+        writer=csv.writer(file2,delimiter=',')
+        for row in final_dict.items():
+            writer.writerow(row)
