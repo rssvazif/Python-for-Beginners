@@ -1,0 +1,8 @@
+# Find the largest age until -1 is entered 
+age=int(input())
+big_age=0
+while age!=-1:
+    if age>big_age:
+        big_age=age
+    age=int(input())
+print(big_age)
