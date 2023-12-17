@@ -1,0 +1,16 @@
+# The program guesses the number we chose in our mind
+import random
+min=1
+max=99
+computer=random.randint(min,max)
+print(computer)
+answer=input()
+while answer!='d': 
+    if answer=='b':
+        min=computer+1
+    elif answer=='k':
+        max=computer-1 
+    computer=random.randint(min,max)
+    print(computer)
+    answer=input()
+print('I finded it, ha ha ha')
