@@ -1,0 +1,12 @@
+# It is a program that reads some positive numbers from the input and prints its square root up to 4 decimal places
+# the output should not be rounded
+from math import sqrt
+
+count_num=int(input())
+numbers=[]
+
+for i in range(0,count_num):
+    numbers.append(sqrt(int(input())))
+
+for i in numbers:
+    print("%.4f" % (int(i*10000)/10000))
