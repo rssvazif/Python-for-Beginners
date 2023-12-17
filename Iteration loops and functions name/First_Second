@@ -1,0 +1,11 @@
+# Print the oldest age and the second oldest age
+age=int(input())
+one_age,two_age=0,0
+while age!=-1:
+    if age>one_age:
+        two_age=one_age
+        one_age=age
+    elif age>two_age:
+        two_age=age
+    age=int(input())
+print(one_age,two_age)
