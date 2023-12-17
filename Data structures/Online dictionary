@@ -1,0 +1,17 @@
+# First,we enter the words from the English to Farsi dictionary ,then it translates a phrase
+# if the word isn't in the dictionary , it will be printed by itself
+import collections
+translator=dict()
+num=int(input())
+for i in range(0,num):
+    letter=input().split()
+    translator[letter[0]]=letter[1]
+sentence=input().split()
+finall=[]
+for letter in sentence:
+    if letter in translator:
+        finall.append(translator[letter])
+    else:
+        finall.append(letter)
+finall=' '.join(finall)
+print(finall)
