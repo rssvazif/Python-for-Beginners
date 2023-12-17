@@ -1,0 +1,8 @@
+# Converting a string from the sum of numbers 1 to 3 to ascending string 
+# for example:'1+1+3+1+3' to '1+1+1+3+3'
+number=input()
+if '+' in number:
+    number=number.replace('+','')
+number=sorted(number)
+number='+'.join(number)
+print(number)
