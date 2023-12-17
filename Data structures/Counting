@@ -1,0 +1,14 @@
+# First,it taks the total number of votes,then it receives the names of the people in each line
+# and in the output of the votes,it prints each person with their name
+import collections
+a=dict()
+num=int(input())
+for i in range(0,num):
+    letter=input()
+    if letter in a:
+        a[letter]+=1
+    else:
+        a[letter]=1
+ab=collections.OrderedDict(sorted(a.items()))
+for i in ab:
+    print(i,ab[i])
