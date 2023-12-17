@@ -1,0 +1,17 @@
+# Read a string.if there are more capital letters,print all in capital letters,otherwise in small letters
+def check(string):
+    up='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    count_U,count_L=0,0
+    for letter in string:
+        if letter in up:
+            count_U+=1
+        else:
+            count_L+=1
+    return count_U,count_L
+string=input()
+c_U,c_L=check(string)
+if c_U > c_L:
+    string=string.upper()
+else:
+    string=string.lower()
+print(string)
