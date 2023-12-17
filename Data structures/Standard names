@@ -1,0 +1,8 @@
+# Read ten nouns and standardize them
+for i in range(0,10):
+    string=input()
+    string=string.lower()
+    chars=string[0]
+    chars=chars.upper()
+    string=chars+string[1:]
+    print(string) 
