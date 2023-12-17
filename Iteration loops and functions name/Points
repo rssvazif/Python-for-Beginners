@@ -1,0 +1,8 @@
+# It shows the total points of a team in 30 games along with the number of wins
+sum,count=0,0
+for i in range(0,30):
+    point=int(input())
+    sum+=point
+    if point==3:
+        count+=1
+print(sum,count)
