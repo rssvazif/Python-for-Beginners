@@ -1,0 +1,11 @@
+# Replacing vowels with '.'and lowercase silent letters
+string=input()
+vowel_letter='aeiouAUEIO'
+for letter in vowel_letter:
+    if letter in string:
+        string=string.replace(letter,'')
+string=string.lower()
+string='.'.join(string)
+string='.'+ string
+
+print(string)
