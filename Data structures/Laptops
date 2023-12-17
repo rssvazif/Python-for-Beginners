@@ -1,0 +1,30 @@
+# First,take the number of laptops and in the first input ,take the price and the second quality.
+# if you find a laptop with a higher quality than the other laptop and the price it is lower,print 'happy irsa' 
+def laptop(num_lap):
+    info_i=[]
+    for i in range(0,num_lap):  
+        info_i.append(input().split())
+    return info_i
+count=0
+num=int(input())
+answer=laptop(num)
+for i in range(0,num-1):
+    for j in range(1,num):
+        x=answer[i]
+        y=answer[j]
+        x=[int(element) for element in x]
+        y=[int(element) for element in y]
+        if x[0] < y[0]:
+            if x[1] > y[1]:
+                count+=1
+                break
+        elif x[0] > y[0]:
+            if x[1] < y[1]:
+                count+=1
+                break
+    if count==1:
+        break
+if count==1:
+    print('happy irsa')
+else:
+    print('poor irsa')
