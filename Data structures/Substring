@@ -1,0 +1,13 @@
+# Recognize that AB and BA are in the same string without overlapping and the order isn't important
+string=input()
+count=0
+if 'AB' in string:
+    count+=1
+    string=string.replace('AB','')
+if 'BA' in string:
+    count+=1
+    string=string.replace('BA','')
+if count==2:
+    print('YES')
+else:
+    print('NO')
