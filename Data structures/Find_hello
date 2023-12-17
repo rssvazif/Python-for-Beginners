@@ -1,0 +1,12 @@
+# Find the expression 'hello' in a string
+string=input()
+reshteh=''
+word='helo'
+for letter in string:
+    if letter in word:
+        reshteh+=letter
+if 'hello' in reshteh:
+    answer='YES'
+else:
+    answer='NO'
+print(answer)
