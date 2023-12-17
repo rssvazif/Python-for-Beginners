@@ -1,0 +1,14 @@
+# Take the number of players and then take the number of times each player participated.
+# Then show the number of teams that can be made for the next 3 years(players who have a history of up to 2 times)
+count=0
+player=int(input())
+num_course=input().split()
+for i in range(0,player):
+    one=num_course.pop(0)
+    one=int(one)
+    num_course.append(one)
+for i in range(0,player):
+    if num_course[i]<3:
+        count+=1
+team=int(count/3)
+print(team) 
