@@ -1,0 +1,18 @@
+# Read 20 numbers and print the number with the highest number of divisors
+number,c1=0,0
+
+def maghsom_elaih(num):
+    count=0
+    for i in range(1,num+1):
+        if num%i==0:
+            count+=1
+    return count
+for i in range(0,20):
+    num=int(input())
+    c2=maghsom_elaih(num)
+    if c2>c1:
+        c1=c2
+        number=num
+    elif c2==c1 and num>number:
+        number=num
+print(number,c1)
