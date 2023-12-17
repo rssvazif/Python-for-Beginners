@@ -1,0 +1,12 @@
+# Calculation of the shortest distance for three people to meet(on the x-axis)
+num=input().split()  # their position
+for i in range(0,len(num)):
+    x=num.pop(0)
+    x=int(x)
+    num.append(x)
+num=sorted(num)
+mid=num[1]
+l1=num[2]-mid
+l2=mid-num[0]
+answer=l1+l2
+print(answer)
