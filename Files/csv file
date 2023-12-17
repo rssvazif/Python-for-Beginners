@@ -1,0 +1,77 @@
+# Reading a csv file and calculating the GPA of people and sorting in different ways with functions(save to file)
+import csv
+import collections
+import operator
+from statistics import mean
+
+def calculate_averages(input_file_name, output_file_name):  # Calculate and store in the same order
+    my_dict=collections.OrderedDict()
+    with open(input_file_name,'r') as f1:
+        reader=csv.reader(f1)
+        for row in reader:
+            num=[float(letter) for letter in row[1:]]
+            ave=mean(num)
+            my_dict[row[0]]=str(ave)
+    with open(output_file_name,'w',newline='') as f2:
+        writer=csv.writer(f2)
+        for row in my_dict.items():
+            writer.writerow(row)
+def calculate_sorted_averages(input_file_name, output_file_name):   # From low to high average
+    dict_no=collections.OrderedDict()
+    with open(input_file_name) as f1:
+        reader=csv.reader(f1)
+        with open(output_file_name,'w',newline='') as f2:
+            writer=csv.writer(f2)
+            for row in reader:
+                num=[float(letter) for letter in row[1:]]
+                dict_no[row[0]]=mean(num)
+            num2=dict(sorted(dict_no.items(),key=operator.itemgetter(1)))
+            for row in num2.items():
+                writer.writerow(row)
+def calculate_three_best(input_file_name, output_file_name):    # it Saves the three best grades with their names
+    dict_no=collections.OrderedDict()
+    dict_yes=collections.OrderedDict()
+    with open(input_file_name) as f1:
+        reader=csv.reader(f1)
+        with open(output_file_name,'w',newline='') as f2:
+            writer=csv.writer(f2)
+            for row in reader:
+                num=[float(letter) for letter in row[1:]]
+                dict_no[row[0]]=mean(num)
+            num2=dict(sorted(dict_no.items(),key=operator.itemgetter(1)))
+            vari=collections.Counter(num2)
+            num2=vari.most_common(3)
+            for name,val in num2:
+                dict_yes[name]=str(val)
+            for row in dict_yes.items():
+                writer.writerow(row)
+def calculate_three_worst(input_file_name, output_file_name):   # it saves the three worst grades without their names
+    dict_no=collections.OrderedDict()
+    dict_yes=collections.OrderedDict()
+    with open(input_file_name) as f1:
+        reader=csv.reader(f1)
+        with open(output_file_name,'w',newline='') as f2:
+            writer=csv.writer(f2)
+            for row in reader:
+                num=[float(letter) for letter in row[1:]]
+                dict_no[row[0]]=mean(num)
+            num2=dict(sorted(dict_no.items(),key=operator.itemgetter(1)))
+            count=0
+            for row in num2.items():
+                dict_yes[row[0]]=str(row[1])
+                count+=1
+                if count==3:
+                    break
+            for i,j in dict_yes.items():
+                writer.writerow([j])
+def calculate_average_of_averages(input_file_name, output_file_name):  # it calculates total average
+    my_list=[]
+    with open(input_file_name) as f1:
+        reader=csv.reader(f1)
+        with open(output_file_name,'w') as f2:
+            writer=csv.writer(f2)  
+            for row in reader:
+                num=[float(letter) for letter in row[1:]]
+                my_list.append(mean(num))
+            my_list=mean(my_list)
+            writer.writerow([my_list])
