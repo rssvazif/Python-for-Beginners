@@ -1,0 +1,8 @@
+# To determine whether a string read from both sides is the same or not
+string=input()
+string=string.lower()
+reverse_string=string[::-1]
+if reverse_string == string:
+    print('palindrome')
+else:
+    print('not palindrome')
